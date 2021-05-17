@@ -9,6 +9,7 @@ namespace Savas.Library.internalinterface
 {
   internal  interface IOyun
 {
+        event EventHandler GecenSureDegisti;
         bool DevamEdiyorMu { get;  }
         TimeSpan Gecensure { get; }
         void baslat();
