@@ -7,6 +7,7 @@ using Savas.Library.Enum;
 using Savas.Library.internalinterface;
 using System.Windows.Forms;
 using System.Drawing;
+using Savas.Library.Interface;
 
 namespace Savas.Library.concrete
 {
@@ -16,6 +17,7 @@ namespace Savas.Library.concrete
         #region alanalar
 
         private readonly Timer _gecensureTimer = new Timer { Interval = 1000 };
+        private readonly Timer _hareketTimer = new Timer { Interval = 100 };
         private TimeSpan _gecensure;
         private readonly Panel _ucaksavarpanel;
         private readonly Panel _savasAlaniPanel;
@@ -48,11 +50,31 @@ namespace Savas.Library.concrete
             _gecensureTimer.Tick += GecensureTimer_Tick;
             _savasAlaniPanel = savasAlanipanel;
             _ucaksavarpanel = ucaksavarpanel;
+            _hareketTimer.Tick += hareketTimer_Tick;
         }
         
         private void GecensureTimer_Tick(object sender, EventArgs e)
         {
             Gecensure += TimeSpan.FromSeconds(1);
+        }
+        private void hareketTimer_Tick(object sender, EventArgs e)
+        {
+            MermileriHareketEttir();
+        }
+
+        private void MermileriHareketEttir()
+        {
+            for (int i = _mermiler.Count - 1; i >= 0; i--)
+            {
+                var mermi = _mermiler[i];
+                var carptiMi = mermi.HarekEtttir(Yon.Yukari);
+
+                if (carptiMi)
+                {
+                    _mermiler.Remove(mermi);
+                    _savasAlaniPanel.Controls.Remove(mermi);
+                }
+            }
         }
 
         public void ateset()
@@ -67,9 +89,15 @@ namespace Savas.Library.concrete
         public void baslat()
         {
             if (DevamEdiyorMu) return;
-            _gecensureTimer.Start();
-                DevamEdiyorMu = true;
+            zamanlayicilaribaslat();
+            DevamEdiyorMu = true;
             Ucaksavarolustur();
+        }
+
+        private void zamanlayicilaribaslat()
+        {
+            _hareketTimer.Start();
+            _gecensureTimer.Start();
         }
 
         private void Ucaksavarolustur()
@@ -82,11 +110,17 @@ namespace Savas.Library.concrete
         private void bitir()
         {
             if (!DevamEdiyorMu) return;
-            _gecensureTimer.Stop();
+            zamanlayicilaribitir();
 
             DevamEdiyorMu = false;
-
         }
+
+        private void zamanlayicilaribitir()
+        {
+            _gecensureTimer.Stop();
+            _hareketTimer.Stop();
+        }
+
         public void ucaksavarihareketettir(Yon yon)
         {
 

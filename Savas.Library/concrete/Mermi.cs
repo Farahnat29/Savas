@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Savas.Library.Enum;
 
 namespace Savas.Library.concrete
 {
@@ -21,5 +22,7 @@ namespace Savas.Library.concrete
             Bottom = HareketAlaniBoyutlari.Height;
             Center = namluOrtasiX;
         }
+
+        
     }
 }
