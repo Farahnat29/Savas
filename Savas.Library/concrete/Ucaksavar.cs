@@ -11,9 +11,11 @@ namespace Savas.Library.concrete
 {
   internal  class Ucaksavar:Cisim
     {
-        public Ucaksavar(int panelgenisligi)
+        public Ucaksavar(int panelgenisligi, Size hareketAlaniBoyutlari):base(hareketAlaniBoyutlari)
         {
-            Left = (panelgenisligi - Width) / 2;
+            Center = panelgenisligi / 2;
+                    
+            HareketMesafesi = Width;
         }
     }
 }

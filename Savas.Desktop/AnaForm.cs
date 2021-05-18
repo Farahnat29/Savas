@@ -31,10 +31,10 @@ namespace Savas.Desktop
                     _oyun.baslat();
                     break;
                 case Keys.Right:
-                    _oyun.ucaksavarihareketettir(Yon.saga);
+                    _oyun.ucaksavarihareketettir(Yon.Saga);
                     break;
                 case Keys.Left:
-                    _oyun.ucaksavarihareketettir(Yon.sola);
+                    _oyun.ucaksavarihareketettir(Yon.Sola);
 
                     break;
                 case Keys.Space:

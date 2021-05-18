@@ -1,26 +1,23 @@
-﻿using System;
+﻿using Savas.Library.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Savas.Library.Enum;
 using System.Drawing;
 
-
-namespace Savas.Library.internalinterface
+namespace Savas.Library.Interface
 {
-   internal interface IHareketEden
+    interface IHareketEden
 {
         Size HareketAlaniBoyutlari { get; }
-
-        int HareketMesafesi { get; }
-
+       int HareketMesafesi { get; }
         /// <summary>
-        /// Cismi istenilen yönde hareket ettirir
+        /// cismi istenilen yonde hareket ettir.
         /// </summary>
-        /// <param name="yon">Hangi yöne hareket edileceği</param>
-        /// <returns>Cisim duvara çaparsa true döndürür.</returns>
-        bool HareketEttir(Yon yon);
-
-    }
+        /// <param name="yon">hangi yone hareket edilecegi</param>
+        /// <returns>cisim duvara carparsa true dondurur</returns>
+        bool HarekEtttir(Yon yon);
+        
+}
 }

@@ -8,12 +8,10 @@ namespace Savas.Library.Enum
 {
    public enum Yon
     {
-       yukari,
-        asagi,
-        saga,
-        sola
-
-
-
+       Yukari,
+        Saga,
+        Asagi,
+        Sola,
+        
     }
 }

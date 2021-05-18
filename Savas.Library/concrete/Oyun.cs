@@ -18,6 +18,7 @@ namespace Savas.Library.concrete
         private readonly Timer _gecensureTimer = new Timer { Interval = 1000 };
         private TimeSpan _gecensure;
         private readonly Panel _ucaksavarpanel;
+        private Ucaksavar _ucaksavar;
 
         #endregion
         #region olaylar
@@ -66,11 +67,9 @@ namespace Savas.Library.concrete
 
         private void Ucaksavarolustur()
         {
-            var ucaksavar = new Ucaksavar(_ucaksavarpanel.Width)
-            {
-                Image = Image.FromFile(@"C:\Users\farah\source\repos\Savas\Savas.Desktop\bin\Debug\gorseller\Ucaksavar.png")
-                    };
-            _ucaksavarpanel.Controls.Add(ucaksavar);
+            _ucaksavar = new Ucaksavar(_ucaksavarpanel.Width, _ucaksavarpanel.Size);
+           
+            _ucaksavarpanel.Controls.Add(_ucaksavar);
         }
 
         private void bitir()
@@ -83,7 +82,11 @@ namespace Savas.Library.concrete
         }
         public void ucaksavarihareketettir(Yon yon)
         {
-            throw new NotImplementedException();
+
+            if (!DevamEdiyorMu) return;
+
+            _ucaksavar.HarekEtttir(yon);
+
         }
         #endregion
     }
