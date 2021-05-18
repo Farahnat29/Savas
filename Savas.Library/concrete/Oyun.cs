@@ -18,11 +18,14 @@ namespace Savas.Library.concrete
 
         private readonly Timer _gecensureTimer = new Timer { Interval = 1000 };
         private readonly Timer _hareketTimer = new Timer { Interval = 100 };
+        private readonly Timer _ucakolusturmaTimer = new Timer { Interval = 2000 };
         private TimeSpan _gecensure;
         private readonly Panel _ucaksavarpanel;
         private readonly Panel _savasAlaniPanel;
         private Ucaksavar _ucaksavar;
         private readonly List<Mermi> _mermiler = new List<Mermi>();
+        private readonly List<Ucak> _Ucaklar = new List<Ucak>();
+
 
         #endregion
         #region olaylar
@@ -51,6 +54,7 @@ namespace Savas.Library.concrete
             _savasAlaniPanel = savasAlanipanel;
             _ucaksavarpanel = ucaksavarpanel;
             _hareketTimer.Tick += hareketTimer_Tick;
+            _ucakolusturmaTimer.Tick += ucakolusturmaTimer_Tick;
         }
         
         private void GecensureTimer_Tick(object sender, EventArgs e)
@@ -61,8 +65,11 @@ namespace Savas.Library.concrete
         {
             MermileriHareketEttir();
         }
-
-        private void MermileriHareketEttir()
+        private void ucakolusturmaTimer_Tick(object sender, EventArgs e)
+        {
+            ucakolustur();
+        }
+            private void MermileriHareketEttir()
         {
             for (int i = _mermiler.Count - 1; i >= 0; i--)
             {
@@ -92,12 +99,23 @@ namespace Savas.Library.concrete
             zamanlayicilaribaslat();
             DevamEdiyorMu = true;
             Ucaksavarolustur();
+            ucakolustur();
+        }
+
+        private void ucakolustur()
+        {
+            var ucak = new Ucak(_savasAlaniPanel.Size);
+            _Ucaklar.Add(ucak);
+            _savasAlaniPanel.Controls.Add(ucak);
         }
 
         private void zamanlayicilaribaslat()
         {
             _hareketTimer.Start();
             _gecensureTimer.Start();
+            _ucakolusturmaTimer.Start();
+
+
         }
 
         private void Ucaksavarolustur()
@@ -119,6 +137,8 @@ namespace Savas.Library.concrete
         {
             _gecensureTimer.Stop();
             _hareketTimer.Stop();
+            _ucakolusturmaTimer.Stop();
+
         }
 
         public void ucaksavarihareketettir(Yon yon)

@@ -1,35 +1,23 @@
-﻿using System;
+﻿using Savas.Library.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using Savas.Library.internalabstract;
+using System.Threading.Tasks;
 
 namespace Savas.Library.concrete
 {
-    class Ucak
+    internal class Ucak : Cisim
     {
-        internal class Ucak : Cisim
+        private static readonly Random Random = new Random();
+
+        public Ucak(Size hareketAlaniBoyutlari) : base(hareketAlaniBoyutlari)
         {
-            private static readonly Random Random = new Random();
+            HareketMesafesi = (int)(Height * .1);
+            Left = Random.Next(hareketAlaniBoyutlari.Width - Width + 1);
+        } 
 
-            public Ucak(Size hareketAlaniBoyutlari) : base(hareketAlaniBoyutlari)
-            {
-                HareketMesafesi = (int)(Height * .1);
-                Left = Random.Next(hareketAlaniBoyutlari.Width - Width + 1);
-            }
-
-            public Mermi VurulduMu(List<Mermi> mermiler)
-            {
-                foreach (var mermi in mermiler)
-                {
-                    var vurulduMu = mermi.Top < Bottom && mermi.Right > Left && mermi.Left < Right;
-                    if (vurulduMu) return mermi;
-                }
-
-                return null;
-            }
-        }
+       
     }
 }
