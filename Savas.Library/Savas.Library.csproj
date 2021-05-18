@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,13 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abstract\Cisim.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="concrete\Oyun.cs" />
+    <Compile Include="concrete\Ucaksavar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enum\Yon.cs" />
     <Compile Include="interface\IOyun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="abstract\" />
     <Folder Include="static\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

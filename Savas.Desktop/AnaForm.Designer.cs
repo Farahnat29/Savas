@@ -33,8 +33,8 @@ namespace Savas.Desktop
             this.bilgipanel = new System.Windows.Forms.Panel();
             this.surelabel = new System.Windows.Forms.Label();
             this.bilgilabel = new System.Windows.Forms.Label();
+            this.ucaksavarpanel = new System.Windows.Forms.Panel();
             this.savasalani = new System.Windows.Forms.Panel();
-            this.uccaksavarpanel = new System.Windows.Forms.Panel();
             this.bilgipanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,31 +73,31 @@ namespace Savas.Desktop
             this.bilgilabel.Text = "Oyunu başlamak için ENTER tuşuna basınç.\r\nUçaksavarı hareket ettirmek için SAĞ/SO" +
     "L yön tuşlarına basın.\r\nAteş etmek için BOŞLUK tuşuna basın.\r\n\r\n";
             // 
+            // ucaksavarpanel
+            // 
+            this.ucaksavarpanel.BackColor = System.Drawing.Color.Teal;
+            this.ucaksavarpanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucaksavarpanel.Location = new System.Drawing.Point(0, 516);
+            this.ucaksavarpanel.Name = "ucaksavarpanel";
+            this.ucaksavarpanel.Size = new System.Drawing.Size(1213, 79);
+            this.ucaksavarpanel.TabIndex = 0;
+            // 
             // savasalani
             // 
-            this.savasalani.BackColor = System.Drawing.Color.Teal;
-            this.savasalani.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.savasalani.Location = new System.Drawing.Point(0, 545);
+            this.savasalani.BackColor = System.Drawing.Color.PeachPuff;
+            this.savasalani.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.savasalani.Location = new System.Drawing.Point(0, 147);
             this.savasalani.Name = "savasalani";
-            this.savasalani.Size = new System.Drawing.Size(1213, 50);
-            this.savasalani.TabIndex = 0;
-            // 
-            // uccaksavarpanel
-            // 
-            this.uccaksavarpanel.BackColor = System.Drawing.Color.PeachPuff;
-            this.uccaksavarpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uccaksavarpanel.Location = new System.Drawing.Point(0, 147);
-            this.uccaksavarpanel.Name = "uccaksavarpanel";
-            this.uccaksavarpanel.Size = new System.Drawing.Size(1213, 398);
-            this.uccaksavarpanel.TabIndex = 1;
+            this.savasalani.Size = new System.Drawing.Size(1213, 369);
+            this.savasalani.TabIndex = 1;
             // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1213, 595);
-            this.Controls.Add(this.uccaksavarpanel);
             this.Controls.Add(this.savasalani);
+            this.Controls.Add(this.ucaksavarpanel);
             this.Controls.Add(this.bilgipanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AnaForm";
@@ -115,8 +115,8 @@ namespace Savas.Desktop
         private System.Windows.Forms.Panel bilgipanel;
         private System.Windows.Forms.Label surelabel;
         private System.Windows.Forms.Label bilgilabel;
+        private System.Windows.Forms.Panel ucaksavarpanel;
         private System.Windows.Forms.Panel savasalani;
-        private System.Windows.Forms.Panel uccaksavarpanel;
     }
 }
 
