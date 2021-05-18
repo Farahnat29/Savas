@@ -19,7 +19,7 @@ namespace Savas.Desktop
         {
             InitializeComponent();
 
-            _oyun = new Oyun(ucaksavarpanel);
+            _oyun = new Oyun(ucaksavarpanel, savasAlanipanel);
             _oyun.GecenSureDegisti += Oyun_GecenSureDegisti;
         }
 

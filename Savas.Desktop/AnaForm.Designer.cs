@@ -34,7 +34,7 @@ namespace Savas.Desktop
             this.surelabel = new System.Windows.Forms.Label();
             this.bilgilabel = new System.Windows.Forms.Label();
             this.ucaksavarpanel = new System.Windows.Forms.Panel();
-            this.savasalani = new System.Windows.Forms.Panel();
+            this.savasAlanipanel = new System.Windows.Forms.Panel();
             this.bilgipanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,21 +82,21 @@ namespace Savas.Desktop
             this.ucaksavarpanel.Size = new System.Drawing.Size(1213, 79);
             this.ucaksavarpanel.TabIndex = 0;
             // 
-            // savasalani
+            // savasAlanipanel
             // 
-            this.savasalani.BackColor = System.Drawing.Color.PeachPuff;
-            this.savasalani.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.savasalani.Location = new System.Drawing.Point(0, 147);
-            this.savasalani.Name = "savasalani";
-            this.savasalani.Size = new System.Drawing.Size(1213, 369);
-            this.savasalani.TabIndex = 1;
+            this.savasAlanipanel.BackColor = System.Drawing.Color.PeachPuff;
+            this.savasAlanipanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.savasAlanipanel.Location = new System.Drawing.Point(0, 147);
+            this.savasAlanipanel.Name = "savasAlanipanel";
+            this.savasAlanipanel.Size = new System.Drawing.Size(1213, 369);
+            this.savasAlanipanel.TabIndex = 1;
             // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1213, 595);
-            this.Controls.Add(this.savasalani);
+            this.Controls.Add(this.savasAlanipanel);
             this.Controls.Add(this.ucaksavarpanel);
             this.Controls.Add(this.bilgipanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -116,7 +116,7 @@ namespace Savas.Desktop
         private System.Windows.Forms.Label surelabel;
         private System.Windows.Forms.Label bilgilabel;
         private System.Windows.Forms.Panel ucaksavarpanel;
-        private System.Windows.Forms.Panel savasalani;
+        private System.Windows.Forms.Panel savasAlanipanel;
     }
 }
 

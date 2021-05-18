@@ -18,7 +18,9 @@ namespace Savas.Library.concrete
         private readonly Timer _gecensureTimer = new Timer { Interval = 1000 };
         private TimeSpan _gecensure;
         private readonly Panel _ucaksavarpanel;
+        private readonly Panel _savasAlaniPanel;
         private Ucaksavar _ucaksavar;
+        private readonly List<Mermi> _mermiler = new List<Mermi>();
 
         #endregion
         #region olaylar
@@ -41,9 +43,10 @@ namespace Savas.Library.concrete
         
 
 
-        public Oyun(Panel ucaksavarpanel)
+        public Oyun(Panel ucaksavarpanel, Panel savasAlanipanel)
         {
             _gecensureTimer.Tick += GecensureTimer_Tick;
+            _savasAlaniPanel = savasAlanipanel;
             _ucaksavarpanel = ucaksavarpanel;
         }
         
@@ -54,7 +57,11 @@ namespace Savas.Library.concrete
 
         public void ateset()
         {
-            throw new NotImplementedException();
+            if (!DevamEdiyorMu) return;
+
+            var mermi = new Mermi(_savasAlaniPanel.Size, _ucaksavar.Center);
+            _mermiler.Add(mermi);
+            _savasAlaniPanel.Controls.Add(mermi);
         }
 
         public void baslat()
